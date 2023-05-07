@@ -1,5 +1,5 @@
-import {  renderTodos, clearNewTodoInput, getTodoId } from './ui';
-import {removeTodo,  updateTodo, addTodo, getAllTodos} from './data'
+import {  renderTodos, clearNewTodoInput, getTodoId } from './ui.js';
+import {removeTodo,  updateTodo, addTodo, getAllTodos} from './data.js'
 
 export function onLoadEventHandler() {
     renderTodos(getAllTodos())
