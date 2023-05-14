@@ -1,3 +1,4 @@
+import '../styles/vendors.scss';
 import styles from '../styles/notification.module.css'
 
 export function renderTodos(todos) {
@@ -32,8 +33,16 @@ export function getTodoId(element) {
 }
 
 function showNotification() {
-    const notification = `<div class="${styles.notification}">Todo item added</div>`
-    document.body.innerHTML += notification
+    // const notification = `<div class="${styles.notification}">Todo item added</div>`
+    // document.body.innerHTML += notification
+
+    const notificationElement = document.createElement('div');
+    notificationElement.classList.add('alert', 'alert-success', styles.notification);
+    notificationElement.setAttribute('role', 'alert');
+    notificationElement.innerHTML = 'Todo item added';
+    document.body.appendChild(notificationElement);
+
+    
     // And we are going to remove this div after 2 seconds.
     setTimeout(function () {
         const notificationElement = document.querySelector(`.${styles.notification}`)
