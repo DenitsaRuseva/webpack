@@ -1,5 +1,15 @@
 import {  renderTodos, clearNewTodoInput, getTodoId } from './ui.js';
-import {removeTodo,  updateTodo, addTodo, getAllTodos} from './data.js'
+import {removeTodo,  updateTodo, addTodo, getAllTodos} from './data.js';
+import { capitalize } from 'lodash'
+
+
+
+function trim(value) {
+    return value
+        .replace(/^\s+/, '')
+        .replace(/\s+$/, '')
+        .replace(/\s{2,}/g, ' ');
+}
 
 export function onLoadEventHandler() {
     renderTodos(getAllTodos())
@@ -7,6 +17,8 @@ export function onLoadEventHandler() {
 
 export function newTodoEventHandler(event) {
     let text = event.target.value
+    text = text |> trim |> capitalize
+
     addTodo({
         id: Date.now(),
         text: text,
