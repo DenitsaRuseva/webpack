@@ -1,4 +1,7 @@
 {
+    "presets": [
+		"@babel/preset-typescript"
+	],
     "plugins": [
         ["@babel/plugin-proposal-pipeline-operator", { "proposal": "minimal" }]
     ],
@@ -18,7 +21,10 @@
         "dev": {
 			"presets": [
 				["@babel/preset-env"]
-			]
+			],
+            "plugins": [
+                "@emotion"
+            ]
 		}
     }
 }

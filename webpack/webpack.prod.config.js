@@ -12,6 +12,7 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
+    // devtool: 'source-map',
     output: {
         filename: 'js/[name].[contenthash:12].js'
     },
@@ -120,7 +121,7 @@ module.exports = merge(common, {
                      ]
             },
             {
-                test: /\.(png|jpg|svg)$/,
+                test: /\.(png|svg)$/,
                 type: 'asset',
                 parser: {
                     dataUrlCondition: {
@@ -130,20 +131,20 @@ module.exports = merge(common, {
                 generator: {
                     filename: './images/[name].[contenthash:12][ext]'
                 },
-                // use: [
-                //     {
-                //         loader: 'image-webpack-loader',
-                //         options: {
-                //             mozjpeg: {
-                //                 quality: 40,
-                //             },
-                //             pngquant: {
-                //                 quality: [0.65, 0.90],
-                //                 speed: 4
-                //             }
-                //         }
-                //     }
-                // ]
+                use: [
+                    {
+                        loader: 'image-webpack-loader',
+                        options: {
+                            mozjpeg: {
+                                quality: 40,
+                            },
+                            pngquant: {
+                                quality: [0.65, 0.90],
+                                speed: 4
+                            }
+                        }
+                    }
+                ]
             }
         ]
     },
