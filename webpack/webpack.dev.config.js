@@ -50,7 +50,7 @@ module.exports = merge(common, {
             {
                 test: /\.less$/,
                 use: [ 'style-loader', 'css-loader', 'less-loader' ],
-            }
+            },
         ]
     }
 })
