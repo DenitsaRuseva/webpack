@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunk_3_setting_up_application=globalThis.webpackChunk_3_setting_up_application||[]).push([[512],{5477:(t,n,e)=>{e.d(n,{Z:()=>p});var a=/[A-Z]/g,r=/^ms-/,i={};function s(t){return"-"+t.toLowerCase()}const p=function(t){if(i.hasOwnProperty(t))return i[t];var n=t.replace(a,s);return i[t]=r.test(n)?"-"+n:n}}}]);

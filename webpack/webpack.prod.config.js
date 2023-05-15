@@ -112,18 +112,69 @@ module.exports = merge(common, {
                 //     },
                 // }
             
-                chunks: 'all',
-                maxSize: Infinity,
-                minSize: 0,
-                cacheGroups: {
-                    node_modules: {
-                        test: /[\\/]node_modules[\\/]/,
-                        name(module) {
-                            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
-                            return packageName;
+                // chunks: 'all',
+                // maxSize: Infinity,
+                // minSize: 0,
+                // cacheGroups: {
+                //     node_modules: {
+                //         test: /[\\/]node_modules[\\/]/,
+                //         name(module) {
+                //             const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                //             return packageName;
+                //         },
+                //     },
+                // }
+
+
+                // chunks: 'all',
+                // maxSize: Infinity,
+                // minSize: 2000,
+                // cacheGroups: {
+                //     jquery: {
+                //         test: /[\\/]node_modules[\\/]jquery[\\/]/,
+                //         name: 'jquery',
+                //     },
+                //     bootstrap: {
+                //         test: /[\\/]node_modules[\\/]bootstrap[\\/]/,
+                //         name: 'bootstrap',
+                //     },
+                //     lodash: {
+                //         test: /[\\/]node_modules[\\/]lodash-es[\\/]/,
+                //         name: 'lodash-es',
+                //     },
+                //     node_modules: {
+                //         test: /[\\/]node_modules[\\/]/,
+                //         name: 'node_modules',
+                //     },
+                // }
+
+
+               
+                    chunks: 'all',
+                    maxSize: Infinity,
+                    minSize: 2000,
+                    cacheGroups: {
+                        jquery: {
+                            test: /[\\/]node_modules[\\/]jquery[\\/]/,
+                            name: 'jquery',
                         },
-                    },
-                }
+                        lodash: {
+                            test: /[\\/]node_modules[\\/]lodash-es[\\/]/,
+                            name: 'lodash-es',
+                        },
+                        node_modules: {
+                            test: /[\\/]node_modules[\\/]/,
+                            name: 'node_modules',
+                            chunks: 'initial',
+                        },
+                        async: {
+                            test: /[\\/]node_modules[\\/]/,
+                            chunks: 'async',
+                            name(module, chunks) {
+                                return chunks.map(chunk => chunk.name).join('-');
+                            },
+                        }
+                    }
            
         }
     },
