@@ -102,13 +102,26 @@ module.exports = merge(common, {
             //    return fileName
             // }
         
+                // chunks: 'all',
+                // maxSize: Infinity,
+                // minSize: 0,
+                // cacheGroups: {
+                //     node_modules: {
+                //         test: /[\\/]node_modules[\\/]/,
+                //         name: 'node_modules',
+                //     },
+                // }
+            
                 chunks: 'all',
                 maxSize: Infinity,
                 minSize: 0,
                 cacheGroups: {
                     node_modules: {
                         test: /[\\/]node_modules[\\/]/,
-                        name: 'node_modules',
+                        name(module) {
+                            const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
+                            return packageName;
+                        },
                     },
                 }
            
