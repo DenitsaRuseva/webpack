@@ -40,7 +40,7 @@ export function renderTodos(todos) {
     })
     document.querySelector('.todo-list').innerHTML = renderedItemArray.join('');
 
-    renderMotivationalPictures();
+    // renderMotivationalPictures();
 }
 
 export function clearNewTodoInput() {

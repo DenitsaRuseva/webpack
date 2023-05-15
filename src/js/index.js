@@ -2,10 +2,11 @@ import '../styles/index.scss';
 import {onLoadEventHandler, newTodoEventHandler, removeTodoEventHandler,confirmRemoveEventHandler, toggleTodoEventListener} from './event-handllers';
 
 
+export function renderApp() {
+    onLoadEventHandler()
+}
 
-
-
-window.addEventListener('load', onLoadEventHandler)
+window.addEventListener('load', renderApp)
 document.addEventListener('change', function (event) {
     if (event.target.classList.contains('new-todo')) {
         newTodoEventHandler(event)
