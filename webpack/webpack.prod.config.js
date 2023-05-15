@@ -6,6 +6,8 @@ const path = require('path');
 const glob = require('glob');
 const { PurgeCSSPlugin } = require('purgecss-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
+const CompressionPlugin = require('compression-webpack-plugin')
+
 
 
 
@@ -253,6 +255,10 @@ module.exports = merge(common, {
         }),
         new PurgeCSSPlugin({
             paths: glob.sync(`${path.join(__dirname, '../src')}/**/*`,  { nodir: true }),
+        }),
+        new CompressionPlugin({
+            algorithm: 'gzip',
+            test: /\.(js|css)$/,
         })
     ]
 })
