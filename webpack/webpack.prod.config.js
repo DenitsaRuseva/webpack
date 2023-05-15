@@ -93,14 +93,25 @@ module.exports = merge(common, {
             //         name: 'bootstrap',
             //     },
             // },
-            chunks: 'all',
-            maxSize: 140000,
-            minSize: 50000,
-            name(module, chunks, cacheGroupKey) {
-                const filePath = module.identifier();
-                const fileName = path.basename(filePath);
-               return fileName
-            }
+            // chunks: 'all',
+            // maxSize: 140000,
+            // minSize: 50000,
+            // name(module, chunks, cacheGroupKey) {
+            //     const filePath = module.identifier();
+            //     const fileName = path.basename(filePath);
+            //    return fileName
+            // }
+        
+                chunks: 'all',
+                maxSize: Infinity,
+                minSize: 0,
+                cacheGroups: {
+                    node_modules: {
+                        test: /[\\/]node_modules[\\/]/,
+                        name: 'node_modules',
+                    },
+                }
+           
         }
     },
     module: {
