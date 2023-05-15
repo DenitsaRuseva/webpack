@@ -154,10 +154,10 @@ module.exports = merge(common, {
                     maxSize: Infinity,
                     minSize: 2000,
                     cacheGroups: {
-                        jquery: {
-                            test: /[\\/]node_modules[\\/]jquery[\\/]/,
-                            name: 'jquery',
-                        },
+                        // jquery: {
+                        //     test: /[\\/]node_modules[\\/]jquery[\\/]/,
+                        //     name: 'jquery',
+                        // },
                         lodash: {
                             test: /[\\/]node_modules[\\/]lodash-es[\\/]/,
                             name: 'lodash-es',

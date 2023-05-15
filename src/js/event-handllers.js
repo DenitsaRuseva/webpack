@@ -3,7 +3,7 @@ import {removeTodo,  updateTodo, addTodo, getAllTodos} from './data.js';
 import { capitalize } from 'lodash-es'
 import {trim} from './helpers.ts';
 // import { Modal } from 'bootstrap'
-import $ from 'jquery'
+// import $ from 'jquery'
 
 export function onLoadEventHandler() {
     renderTodos(getAllTodos())
@@ -42,10 +42,16 @@ export function newTodoEventHandler(event) {
 // }
 
 export function removeTodoEventHandler(event) {
-    import(
-        'bootstrap'
-        /* webpackChunkName: "bootstrap" */
-	)
+    Promise.all([
+        import(
+            'bootstrap'
+            /* webpackChunkName: "bootstrap" */
+        ),
+        import(
+            'jquery'
+            /* webpackChunkName: "jquery" */
+        )
+    ])
 	.then(function ({ Modal }) {
         const id = getTodoId(event.target)
         $('#modal-delete-button').data('todo-id', id)
@@ -57,10 +63,16 @@ export function removeTodoEventHandler(event) {
 }
 
 export function confirmRemoveEventHandler() {
-    import(
-        'bootstrap'
-        /* webpackChunkName: "bootstrap" */
-	)
+    Promise.all([
+        import(
+            'bootstrap'
+            /* webpackChunkName: "bootstrap" */
+        ),
+        import(
+            'jquery'
+            /* webpackChunkName: "jquery" */
+        )
+    ])
 	.then(function ({ Modal }) {
         const id = $('#modal-delete-button').data('todo-id')
         removeTodo(id)
